@@ -9,6 +9,7 @@ class GamesController < ApplicationController
     @letters = []
     10.times { @letters << alphabets.sample }
     @start_time = Time.now
+    session[:current_score] ||= 0
   end
 
   def valid_grid?(user_array, letters)
@@ -31,6 +32,6 @@ class GamesController < ApplicationController
     @valid_grid = valid_grid?(@user_word.split(''), @letters)
     @english_word = english_word?(@user_word)['found']
     @score = check_score(@user_word, @time)
-    # session[:current_score] += @score
+    session[:current_score] += @score
   end
 end
