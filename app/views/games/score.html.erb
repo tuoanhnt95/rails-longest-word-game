@@ -1,0 +1,20 @@
+<div class="container pt-3">
+  <h1>Result</h1>
+</div>
+
+<div class="p-3">
+  <% if !@valid_grid %>
+    <p>Cannot build from the letters <%= @letters.join(", ").upcase%>.</p>
+  <% elsif !@english_word %>
+    <p>Not an Engish word</p>
+  <% else %>
+    <p><strong>Congratulations!</strong> <%=@user_word.upcase%> is a valid English word!</p>
+    <p>Time Taken to answer: <%= @time %></p>
+    <p>Your score:  <%= @score %></p>
+  <% end %>
+  <p>Your current score: <%= session[:current_score] %></p>
+</div>
+
+<div class="p-3">
+  <%= link_to "Play again", new_path, class: "text-decoration-none" %>
+</div>
