@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # post the input and the time
   post 'score', to: 'games#score', as: :play
   # get the info from score
-  get 'score', to: 'games#'
+  get 'score', to: 'games#git'
 end
